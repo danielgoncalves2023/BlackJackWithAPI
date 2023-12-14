@@ -1,0 +1,51 @@
+* {
+    background-color: gray;
+}
+
+body section div h1 {
+    display: grid;
+    place-items: center;
+}
+
+.back-card {
+    background-image: url('https://deckofcardsapi.com/static/img/back.png');
+}
+
+.container_comum {
+    display: grid;
+    place-items: center;
+}
+
+.container {
+    display: grid;
+    place-items: center;
+    margin: 10px;
+}
+
+.table_user {
+    display: flex;
+    flex-direction: row;
+    border: 2px solid blue;
+    padding: 10px;
+}
+
+.table_oponent {
+    display: flex;
+    flex-direction: row;
+    border: 2px solid blue;
+    padding: 10px;
+}
+
+.cards {
+    aspect-ratio: 3/4;
+    width: 100px;
+    border: 1px solid black;
+    margin: 10px;
+    background-image: url('https://deckofcardsapi.com/static/img/5S.png');
+    background-size: cover;
+}
+
+button {
+    width: 100%;
+    height: 30px;
+}
