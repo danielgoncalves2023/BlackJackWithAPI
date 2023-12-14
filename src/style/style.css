@@ -1,5 +1,15 @@
 * {
-    background-color: gray;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color-container: #355E3B;
+    --color-table-background: #005c29;
+    --color-table-border: #138808;
+    --color-background: rgb(43, 28, 1);
+    --color-background-button: #013220;
+    --color-font-button: #90EE90;
 }
 
 body section div h1 {
@@ -12,27 +22,32 @@ body section div h1 {
 }
 
 .container_comum {
+    background-color: var(--color-background);
     display: grid;
     place-items: center;
 }
 
 .container {
+    background-color: var(--color-container);
     display: grid;
     place-items: center;
-    margin: 10px;
+    margin: 5px;
+    padding: 10px;
 }
 
 .table_user {
     display: flex;
     flex-direction: row;
-    border: 2px solid blue;
+    background-color: var(--color-table-background);
+    border: 2px solid var(--color-table-border);
     padding: 10px;
 }
 
 .table_oponent {
     display: flex;
     flex-direction: row;
-    border: 2px solid blue;
+    background-color: var(--color-table-background);
+    border: 2px solid var(--color-table-border);
     padding: 10px;
 }
 
@@ -46,6 +61,13 @@ body section div h1 {
 }
 
 button {
+    background-color: var(--color-background-button);
+    color: var(--color-font-button);
     width: 100%;
     height: 30px;
+    font-weight: 700;
+}
+
+h1, span {
+    font-size: 1rem;
 }

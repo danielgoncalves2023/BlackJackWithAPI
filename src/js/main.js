@@ -2,6 +2,7 @@ var deckUser = [];
 var deckOponent = [];
 var deckGame = "";
 var drawNewCardUser = document.querySelector('#drawNewCardUser')
+drawNewCardUser.addEventListener('click', () => deckGame.drawNewCard(deckUser, 1))
 
 // API DECK OF CARDS
 async function getDeckId() {
@@ -31,8 +32,6 @@ async function convertCardsToHtmlUser() {
             <h1>${card.value}<span>${card.suit}</span></h1>
         </div>
         `;
-
-        // console.log(deckUser)
     }
 }
 
@@ -68,4 +67,110 @@ async function initialize() {
 
 initialize();
 
-drawNewCardUser.addEventListener('click', () => deckGame.drawNewCard(deckUser, 1))
+function endGame() {
+    var totalPointsUser = 0;
+    var totalPointsOponent = 0;
+
+    for (let i = 0; i < deckUser.length; i++) {
+        let value = deckUser[i].value;
+
+        if (value >= 1 & value <= 10) {
+            const cardPoint = Number(value)
+
+            switch (cardPoint) {
+                case 1:
+                    totalPointsUser += 1;
+                    break;
+                case 2:
+                    totalPointsUser += 2;
+                    break;
+                case 3:
+                    totalPointsUser += 3;
+                    break;
+                case 4:
+                    totalPointsUser += 4;
+                    break;
+                case 5:
+                    totalPointsUser += 5;
+                    break;
+                case 6:
+                    totalPointsUser += 6;
+                    break;
+                case 7:
+                    totalPointsUser += 7;
+                    break;
+                case 8:
+                    totalPointsUser += 8;
+                    break;
+                case 9:
+                    totalPointsUser += 9;
+                    break;
+                default:
+                    alert("Erro ao calcular pontuação final.")
+            }
+        } else if (value == 'QUEEN' | value == 'JACK' | value == 'KING'){
+            totalPointsUser += 10;
+        } else if (value == 'ACE'){
+            if(confirm("O ÁS pode ter valor 1 ou 11.Para definir que ele tenha valor 1 clique 'OK', ou se quer que seu valor seja 11 clique 'Cancelar'.") == true){
+                totalPointsUser += 1;
+            } else {
+                totalPointsUser += 11;
+            }
+        }
+    }
+
+    // console.log(`Total points user: ${totalPointsUser}`)
+
+    for (let i = 0; i < deckOponent.length; i++) {
+        let value = deckOponent[i].value;
+
+        if (value >= 1 & value <= 10) {
+            const cardPoint = Number(value)
+
+            switch (cardPoint) {
+                case 1:
+                    totalPointsOponent += 1;
+                    break;
+                case 2:
+                    totalPointsOponent += 2;
+                    break;
+                case 3:
+                    totalPointsOponent += 3;
+                    break;
+                case 4:
+                    totalPointsOponent += 4;
+                    break;
+                case 5:
+                    totalPointsOponent += 5;
+                    break;
+                case 6:
+                    totalPointsOponent += 6;
+                    break;
+                case 7:
+                    totalPointsOponent += 7;
+                    break;
+                case 8:
+                    totalPointsOponent += 8;
+                    break;
+                case 9:
+                    totalPointsOponent += 9;
+                    break;
+                default:
+                    alert("Erro ao calcular pontuação final.")
+            }
+        } else if (value == 'QUEEN' | value == 'JACK' | value == 'KING'){
+            totalPointsOponent += 10;
+            // Oponent não pode "confirmar" se Ás vale 1 ou 11.
+            // TO DO
+        } else if (value == 'ACE'){
+            if(confirm("O ÁS pode ter valor 1 ou 11.Para definir que ele tenha valor 1 clique 'OK', ou se quer que seu valor seja 11 clique 'Cancelar'.") == true){
+                totalPointsOponent += 1;
+            } else {
+                totalPointsOponent += 11;
+            }
+        }
+    }
+
+    console.log(`Total points user: ${totalPointsOponent}`)
+
+}
