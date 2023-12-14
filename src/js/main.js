@@ -48,8 +48,6 @@ async function convertCardsToHtmlOponent() {
             <h1>${card.value}<span>${card.suit}</span></h1>
         </div>
         `;
-
-        // console.log(deckOponent)
     }
 }
 
@@ -71,11 +69,12 @@ function endGame() {
     var totalPointsUser = 0;
     var totalPointsOponent = 0;
 
+    // Contagem de pontos do Usuário
     for (let i = 0; i < deckUser.length; i++) {
-        let value = deckUser[i].value;
+        let cardValue = deckUser[i].value;
 
-        if (value >= 1 & value <= 10) {
-            const cardPoint = Number(value)
+        if (cardValue >= 1 & cardValue < 11) {
+            const cardPoint = Number(cardValue)
 
             switch (cardPoint) {
                 case 1:
@@ -105,13 +104,16 @@ function endGame() {
                 case 9:
                     totalPointsUser += 9;
                     break;
+                case 10:
+                    totalPointsUser += 10;
+                    break;
                 default:
                     alert("Erro ao calcular pontuação final.")
             }
-        } else if (value == 'QUEEN' | value == 'JACK' | value == 'KING'){
+        } else if (cardValue == 'QUEEN' | cardValue == 'JACK' | cardValue == 'KING') {
             totalPointsUser += 10;
-        } else if (value == 'ACE'){
-            if(confirm("O ÁS pode ter valor 1 ou 11.Para definir que ele tenha valor 1 clique 'OK', ou se quer que seu valor seja 11 clique 'Cancelar'.") == true){
+        } else if (cardValue == 'ACE') {
+            if (confirm("O ÁS pode ter valor 1 ou 11.Para definir que ele tenha valor 1 clique 'OK', ou se quer que seu valor seja 11 clique 'Cancelar'.") == true) {
                 totalPointsUser += 1;
             } else {
                 totalPointsUser += 11;
@@ -119,13 +121,15 @@ function endGame() {
         }
     }
 
-    // console.log(`Total points user: ${totalPointsUser}`)
+    console.log(`Total points user: ${totalPointsUser}`)
+    console.log(deckUser)
 
+    // Contagem de pontos do Oponente
     for (let i = 0; i < deckOponent.length; i++) {
-        let value = deckOponent[i].value;
+        let cardValue = deckOponent[i].value;
 
-        if (value >= 1 & value <= 10) {
-            const cardPoint = Number(value)
+        if (cardValue >= 1 & cardValue < 11) {
+            const cardPoint = Number(cardValue)
 
             switch (cardPoint) {
                 case 1:
@@ -155,15 +159,17 @@ function endGame() {
                 case 9:
                     totalPointsOponent += 9;
                     break;
+                case 10:
+                    totalPointsUser += 10;
+                    break;
                 default:
                     alert("Erro ao calcular pontuação final.")
             }
-        } else if (value == 'QUEEN' | value == 'JACK' | value == 'KING'){
+        } else if (cardValue == 'QUEEN' | cardValue == 'JACK' | cardValue == 'KING') {
             totalPointsOponent += 10;
-            // Oponent não pode "confirmar" se Ás vale 1 ou 11.
-            // TO DO
-        } else if (value == 'ACE'){
-            if(confirm("O ÁS pode ter valor 1 ou 11.Para definir que ele tenha valor 1 clique 'OK', ou se quer que seu valor seja 11 clique 'Cancelar'.") == true){
+            // Oponent não pode "confirmar" se Ás vale 1 ou 11. << TO DO >>
+        } else if (cardValue == 'ACE') {
+            if (totalPointsOponent > 11) {
                 totalPointsOponent += 1;
             } else {
                 totalPointsOponent += 11;
@@ -171,6 +177,7 @@ function endGame() {
         }
     }
 
-    console.log(`Total points user: ${totalPointsOponent}`)
+    console.log(`Total points oponent: ${totalPointsOponent}`)
+    console.log(deckOponent)
 
 }

@@ -21,7 +21,7 @@ class Deck {
         } else if (deck == deckOponent){
             convertCardsToHtmlOponent();
         } else {
-            alert("Erro.")
+            alert("Erro ao carregar as cartas.")
         }
     }
 
@@ -40,9 +40,7 @@ class Deck {
         } else if (deck == deckOponent){
             convertCardsToHtmlOponent();
         } else {
-            alert("Erro.")
+            alert("Erro ao carregar as cartas.")
         }
-
-        console.log(deck)
     }
 }
