@@ -7,18 +7,22 @@
     --color-container: #355E3B;
     --color-table-background: #005c29;
     --color-table-border: #138808;
-    --color-background: rgb(43, 28, 1);
+    --color-background: rgb(53, 35, 1);
     --color-background-button: #013220;
-    --color-font-button: #90EE90;
+    --color-background-button-hover: #005C29;
+    --color-background-button-active: #138808;
+    --color-font-button: white;
+}
+
+body {
+    width: 100%;
+    height: 100dvh;
+    overflow-x: hidden;
 }
 
 body section div h1 {
     display: grid;
     place-items: center;
-}
-
-.back-card {
-    background-image: url('https://deckofcardsapi.com/static/img/back.png');
 }
 
 .container_comum {
@@ -37,35 +41,82 @@ body section div h1 {
 
 .table_user {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     background-color: var(--color-table-background);
     border: 2px solid var(--color-table-border);
+    border-radius: 10px;
     padding: 10px;
 }
 
 .table_oponent {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     background-color: var(--color-table-background);
     border: 2px solid var(--color-table-border);
+    border-radius: 10px;
     padding: 10px;
+
+
 }
 
+
 .cards {
-    aspect-ratio: 3/4;
+    aspect-ratio: 2.1/2.9;
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 100px;
+    flex: 1;
+    object-fit: cover;
+    border: 1px solid black;
+    margin: 10px;
+    background-size: cover;
+}
+
+.front-card {
+    aspect-ratio: 2.1/2.9;
+    box-sizing: border-box;
+    border-radius: 10px;
     width: 100px;
     border: 1px solid black;
     margin: 10px;
-    background-image: url('https://deckofcardsapi.com/static/img/5S.png');
     background-size: cover;
+
+    backface-visibility: hidden;
+}
+
+.back-card {
+    aspect-ratio: 2.1/2.9;
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 100px;
+    border: 1px solid black;
+    margin: 10px;
+    background-image: url('https://deckofcardsapi.com/static/img/back.png');
+    background-size: cover;
+}
+
+.info-back-card {
+    display: none;
 }
 
 button {
     background-color: var(--color-background-button);
     color: var(--color-font-button);
-    width: 100%;
-    height: 30px;
+    border-radius: 20px;
+    width: 160px;
     font-weight: 700;
+    margin-top: 5px;
+    padding: 8px;
+}
+
+button:hover {
+    background-color: var(--color-background-button-hover);
+}
+
+button:active {
+    background-color: var(--color-background-button-active);
 }
 
 h1, span {

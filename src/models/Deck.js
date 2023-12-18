@@ -16,9 +16,9 @@ class Deck {
             console.log(error);
         }
 
-        if(deck == deckUser){
+        if(deck === deckUser){
             convertCardsToHtmlUser();
-        } else if (deck == deckOponent){
+        } else if (deck === deckOponent){
             convertCardsToHtmlOponent();
         } else {
             alert("Erro ao carregar as cartas.")
@@ -35,9 +35,9 @@ class Deck {
             console.log(error);
         }
 
-        if(deck == deckUser){
+        if(deck === deckUser){
             convertCardsToHtmlUser();
-        } else if (deck == deckOponent){
+        } else if (deck === deckOponent){
             convertCardsToHtmlOponent();
         } else {
             alert("Erro ao carregar as cartas.")
