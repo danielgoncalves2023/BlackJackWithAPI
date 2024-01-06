@@ -44,9 +44,9 @@ function displayResults(){
         
         if(deckGame.totalPointsUser > 21 && deckGame.totalPointsOponent > 21){
             winner = "EMPATE! Os dois passaram de 21 pontos."
-        } else if(deckGame.totalPointsUser > 21 && deckGame.totalPointsOponent < 21){
+        } else if(deckGame.totalPointsUser > 21 && deckGame.totalPointsOponent <= 21){
             winner = "VOCÊ PERDEU! Ultrapassou os 21 pontos."
-        } else if(deckGame.totalPointsUser < 21 && deckGame.totalPointsOponent > 21){
+        } else if(deckGame.totalPointsUser <= 21 && deckGame.totalPointsOponent > 21){
             winner = "VOCÊ VENCEU! Seu oponente ultrapassou os 21 pontos."
         } else if(deckGame.totalPointsUser < deckGame.totalPointsOponent){
             winner = "VOCÊ PERDEU! Tente denovo."
