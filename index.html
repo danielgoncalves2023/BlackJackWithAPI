@@ -9,6 +9,7 @@
 <body>
 
     <div class="container_comum">
+        <!-- Mesa Usuário -->
         <section class="container">
             <h2>Suas cartas</h2>
             <div class="table_user">
@@ -17,10 +18,16 @@
                     <h1>Teste<span>Teste</span></h1>
                 </div> -->
             </div>
-            <button id="drawNewCardUser">Pedir nova carta</button>
-            <button onclick="deckGame.endGame()">Parar</button>
+            <div id="interacao">
+                <!-- Botões -->
+                <div id="buttons">
+                    <button id="drawNewCardUser">Pedir nova carta</button>
+                    <button id="buttonEndGame" onclick="deckGame.endGame()">Parar</button>
+                </div>
+            </div>
         </section>
     
+        <!-- Mesa Oponente -->
         <section class="container">
             <h2>Cartas do Adversário</h2>
             <div class="table_oponent">

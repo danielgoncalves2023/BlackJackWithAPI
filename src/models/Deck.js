@@ -4,19 +4,25 @@ class Deck {
     table_oponent;
     totalPointsUser;
     totalPointsOponent;
+    displayUserPoints;
+    displayOponentPoints;
 
     constructor(
-        deck_id, table_user, table_oponent, totalPointsUser = 0, totalPointsOponent = 0
+        deck_id, table_user, table_oponent,
+        totalPointsUser = 0, totalPointsOponent = 0,
+        displayUserPoints, displayOponentPoints
         ){
         this.deck_id = deck_id;
         this.table_user = table_user;
         this.table_oponent = table_oponent;
         this.totalPointsUser = totalPointsUser;
         this.totalPointsOponent = totalPointsOponent;
+        this.displayUserPoints = displayUserPoints;
+        this.displayOponentPoints = displayOponentPoints;
     }
 
     // Converte as cartas da API para elementos HTML
-    async convertCardsToHtmlUser() {
+    convertCardsToHtmlUser() {
         this.table_user.innerHTML = '';
     
         for (let i = 0; i < deckUser.length; i++) {
@@ -32,7 +38,7 @@ class Deck {
     }
 
     // Converte as cartas da API para elementos HTML
-    async convertCardsToHtmlOponent() {
+    convertCardsToHtmlOponent() {
         this.table_oponent.innerHTML = '';
         let i = 0;
     
@@ -58,7 +64,7 @@ class Deck {
     }
 
     // Revela as cartas viradas do Oponente
-    async revealCardsOponent() {
+    revealCardsOponent() {
         let allCards = [];
     
         // Revelar cartas viradas
@@ -98,7 +104,7 @@ class Deck {
     }
 
     // Compra de novas cartas
-    async drawNewCard(deck, qtde){
+    async drawNewCard(deck, qtde = 1){
         try {
             const res = await fetch(`https://deckofcardsapi.com/api/deck/${this.deck_id}/draw/?count=${qtde}`)
             const data = await res.json();
@@ -118,14 +124,13 @@ class Deck {
     }
 
     // Contagem final de pontos do Oponente
-    async countPointsOponent() {
+    countPointsOponent() {
         this.totalPointsOponent = 0;
     
         for (let i = 0; i < deckOponent.length; i++) {
             let cardValue = deckOponent[i].value;
             this.revealCardsOponent();
     
-            // Contabilizar pontos Oponente
             if (cardValue >= 1 && cardValue <= 10) {
                 const cardPoint = Number(cardValue)
     
@@ -178,7 +183,7 @@ class Deck {
     }
 
     // Contagem final de pontos do Usuário
-    async countPointsUser() {
+    countPointsUser() {
         this.totalPointsUser = 0;
         
         for (let i = 0; i < deckUser.length; i++) {
@@ -229,6 +234,8 @@ class Deck {
                 } else {
                     this.totalPointsUser += 11;
                 }
+            } else {
+                alert('Error na soma de pontos do Usuário.')
             }
         }
     }
@@ -251,7 +258,7 @@ class Deck {
         }
     
         console.log(`Total points oponent: ${deckGame.totalPointsOponent}`)
-        console.log(deckOponent)
+        console.log(deckOponent) 
         // Fim contagem de pontos do Oponente
     }
 }

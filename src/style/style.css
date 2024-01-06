@@ -18,6 +18,7 @@ body {
     width: 100%;
     height: 100dvh;
     overflow-x: hidden;
+    background-color: var(--color-background);
 }
 
 body section div h1 {
@@ -26,7 +27,6 @@ body section div h1 {
 }
 
 .container_comum {
-    background-color: var(--color-background);
     display: grid;
     place-items: center;
 }
@@ -35,32 +35,49 @@ body section div h1 {
     background-color: var(--color-container);
     display: grid;
     place-items: center;
+    width: 100%;
     margin: 5px;
     padding: 10px;
+}
+
+@media (max-width: 500px) {
+    .container {
+        width: 100%;
+        height: auto;
+    }
+
+    .table_user {
+        width: 100%;
+    }
+    
+    .table_oponent {
+        width: 100%;
+    }
 }
 
 .table_user {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: center;
     background-color: var(--color-table-background);
     border: 2px solid var(--color-table-border);
     border-radius: 10px;
     padding: 10px;
+    margin: 20px;
 }
 
 .table_oponent {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: center;
     background-color: var(--color-table-background);
     border: 2px solid var(--color-table-border);
     border-radius: 10px;
     padding: 10px;
-
-
+    margin: 20px;
 }
-
 
 .cards {
     aspect-ratio: 2.1/2.9;
@@ -82,8 +99,6 @@ body section div h1 {
     border: 1px solid black;
     margin: 10px;
     background-size: cover;
-
-    backface-visibility: hidden;
 }
 
 .back-card {
@@ -99,6 +114,35 @@ body section div h1 {
 
 .info-back-card {
     display: none;
+}
+
+#buttons {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#interacao {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+
+.pontuacao {
+    font-size: 1.2em;
+    padding: 10px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.4rem;
+}
+
+p {
+    font-size: 1.5rem;
+    padding: 5px;
 }
 
 button {
