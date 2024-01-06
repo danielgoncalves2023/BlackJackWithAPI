@@ -24,9 +24,29 @@ body {
 body section div h1 {
     display: grid;
     place-items: center;
+    margin: 0 auto;
+}
+
+#wrap_info {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(150, 150, 150, 0.3);
+    backdrop-filter: blur(20px);
+    font-weight: 700;
+    overflow-y: auto;
+}
+
+.container_info {
+    display: grid;
+    place-items: center;
+    margin: 20px;
+    padding: 20px;
 }
 
 .container_comum {
+    /* display: none; */
     display: grid;
     place-items: center;
 }
@@ -136,13 +156,41 @@ body section div h1 {
     text-align: center;
 }
 
+hr {
+    border-color: black;
+    margin: 7px;
+}
+
 h1 {
     font-size: 1.4rem;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+h3 {
+    /* background-color: black; */
+    backdrop-filter: blur(10px);
+    color: white;
+    position: fixed;
+    right: 20px;
+    bottom: 40px;
+    font-size: 3rem;
+    cursor: pointer;
+    border: 1px green solid;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+h4 {
+    font-size: 2rem; 
 }
 
 p {
     font-size: 1.5rem;
     padding: 5px;
+    text-align: justify;
 }
 
 button {

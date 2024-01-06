@@ -6,8 +6,12 @@ const cardsOponent = document.querySelector('.table_oponent')
 const drawNewCardUser = document.querySelector('#drawNewCardUser')
 drawNewCardUser.addEventListener('click', () => deckGame.drawNewCard(deckUser, 1))
 const btnEndGame = document.querySelector('#buttonEndGame')
-const results = document.querySelector('#interacao')
 btnEndGame.addEventListener('click', () => displayResults())
+const results = document.querySelector('#interacao')
+const wrap = document.querySelector('#wrap_info');
+const openWrap = document.querySelector('#wrap');
+openWrap.addEventListener('click', () => wrap.style.display = 'block')
+openWrap.addEventListener('click', () => openWrap.style.display = 'none')
 
 // API DECK OF CARDS
 async function getDeckId() {
@@ -58,8 +62,9 @@ function displayResults(){
 
         results.innerHTML = `
         <div class="pontuacao">
-            <h1>Você obteve ${deckGame.totalPointsUser} pontos.</h1>
-            <h1>Seu oponente obteve ${deckGame.totalPointsOponent} pontos.</h1>
+            <h1>Você obteve: ${deckGame.totalPointsUser} pontos.</h1>
+            <h1>Seu oponente obteve: ${deckGame.totalPointsOponent} pontos.</h1>
+            <hr>
             <p>${winner}</p>
             <button onclick="restartGame()">Novo jogo</button>
         </div>
@@ -72,4 +77,9 @@ function restartGame(){
     setTimeout(() => {
         location.reload();
     }, 500)
+}
+
+function closeWrap(){
+    wrap.style.display = 'none';
+    openWrap.style.display = 'flex';
 }

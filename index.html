@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Black Jack</title>
     <link rel="stylesheet" href="./src/style/style.css">
 </head>
+
 <body>
+
+    <div id="wrap_info">
+        <div class="container_info">
+            <h4>O JOGO</h4>
+            <p>
+                Black Jack, também conhecido popularmente como "21" é o jogo em que os jogadores
+                precisam chegar o mais próximo possível da soma dos valores de carta 21.
+                <br><br>
+                Cada jogador inicia com 2 cartas em mãos, podendo solicitar quantas mais cartas forem necessárias.
+                Mas, sempre se atentando ao limite de 21. Se o jogador ultrapassar 21 pontos, ele perde.
+                <br><br>
+                Se ambos os jogadores ultrapassarem 21 pontos, ou conseguirem a mesma pontuação, é empate.
+                <br><br>
+                O jogador pode parar quando quiser. Quem chegar a soma, ou mais se aproximar sem
+                ultrapassar 21, vence.
+            </p>
+            <br>
+            <h4>AS CARTAS</h4>
+            <p>
+                Os números das cartas são os valores que serão somados.
+                <br><br>
+                Quanto ao Rei (K), a Rainha (Q) e o Valete (J), seu valor sempre será 10.
+                <br><br>
+                O Às pode ter valor 1 ou 11, ao fim do jogo sempre abrirá uma caixa de diálogo perguntando ao usuário
+                qual valor ele quer que o Ás passe a valer.
+            </p>
+            <br><br><br>
+            <p>BOM JOGO!</p>
+            <br>
+            <button onclick="closeWrap()">Fechar</button>
+        </div>
+    </div>
+
+    <div>
+        <h3 id="wrap">?</h3>
+    </div>
 
     <div class="container_comum">
         <!-- Mesa Usuário -->
@@ -26,7 +64,7 @@
                 </div>
             </div>
         </section>
-    
+
         <!-- Mesa Oponente -->
         <section class="container">
             <h2>Cartas do Adversário</h2>
@@ -42,4 +80,5 @@
     <script src="./src/models/Deck.js"></script>
     <script src="./src/js/main.js"></script>
 </body>
+
 </html>
