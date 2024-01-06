@@ -229,10 +229,10 @@ class Deck {
             } else if (cardValue == 'QUEEN' || cardValue == 'JACK' || cardValue == 'KING') {
                 this.totalPointsUser += 10;
             } else if (cardValue == 'ACE') {
-                if (confirm("O ÁS pode ter valor 1 ou 11.Para definir que ele tenha valor 1 clique 'OK', ou se quer que seu valor seja 11 clique 'Cancelar'.") == true) {
-                    this.totalPointsUser += 1;
-                } else {
+                if (confirm("Para definir que o Ás tenha valor 11 clique 'OK', ou se quer que seu valor seja 1 clique 'Cancelar'.")) {
                     this.totalPointsUser += 11;
+                } else {
+                    this.totalPointsUser += 1;
                 }
             } else {
                 alert('Error na soma de pontos do Usuário.')
